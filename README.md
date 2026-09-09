@@ -1,36 +1,29 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 章振特个人作品集
 
-## Getting Started
+面向 AI Agent、LLM 应用和后端工程岗位的中文个人作品集，包含三个工程案例与两项时序预测研究。
 
-First, run the development server:
+## 本地运行
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+pnpm install
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+访问 `http://localhost:3000`。
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 校验与构建
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+pnpm lint
+pnpm typecheck
+pnpm build
+```
 
-## Learn More
+项目使用 Next.js 静态导出，生产文件生成至 `out/`，可直接部署到 Vercel。
 
-To learn more about Next.js, take a look at the following resources:
+## 素材与隐私
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- 公开仓库仅保存网页所需的 SVG 与经过裁切、遮盖、压缩的 WebP 副本。
+- 原始项目截图和开发文档不进入仓库。
+- `scripts/process_assets.py` 用于从本机私有素材目录重新生成公开媒体，可通过 `--source` 指定素材路径。
+- 站点按作品集需求保留原始简历 PDF 下载；其中的公开范围与页面正文不同。
