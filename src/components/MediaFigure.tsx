@@ -5,7 +5,7 @@ import { useRef } from "react";
 import type { MouseEvent } from "react";
 import type { MediaAsset } from "@/data/portfolio";
 
-export function MediaFigure({ media }: { media: MediaAsset }) {
+export function MediaFigure({ media, priority = false }: { media: MediaAsset; priority?: boolean }) {
   const dialogRef = useRef<HTMLDialogElement>(null);
 
   function closeOnBackdrop(event: MouseEvent<HTMLDialogElement>) {
@@ -29,6 +29,7 @@ export function MediaFigure({ media }: { media: MediaAsset }) {
             width={media.width}
             height={media.height}
             sizes={media.portrait ? "(max-width: 700px) 88vw, 560px" : "(max-width: 900px) 92vw, 1200px"}
+            priority={priority}
           />
           <span className="zoom-mark" aria-hidden="true">＋</span>
         </button>

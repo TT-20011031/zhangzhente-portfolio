@@ -31,7 +31,7 @@ export function StudyPage({ study }: { study: Study }) {
           ))}
         </div>
 
-        <MediaFigure media={study.hero} />
+        <MediaFigure media={study.hero} priority />
 
         <div className="facts-grid" aria-label="项目摘要">
           {study.facts.map((fact) => (
