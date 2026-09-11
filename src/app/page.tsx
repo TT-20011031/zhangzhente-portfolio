@@ -15,20 +15,20 @@ export default function Home() {
       <section className="hero page-shell" id="top">
         <div className="hero-index" aria-hidden="true">
           <span>PORTFOLIO / 2026</span>
-          <strong>05</strong>
-          <small>CASE FILES</small>
         </div>
 
         <div className="hero-copy">
           <p className="availability"><i /> 杭州 · 2027.07 毕业</p>
           <h1>
-            把 <em>AI Agent</em>
+            让 <em>AI Agent</em>
             <br />
-            做成可落地的系统。
+            从会回答，
+            <br />
+            走向会完成。
           </h1>
           <p className="hero-lede">
             我是章振特，AI Agent 开发工程师。关注多智能体编排、RAG、
-            Text-to-SQL 与模型应用部署，也用扩散模型研究时序预测。
+            Text-to-SQL 与 Harness Engineering，也用扩散模型研究时序预测。
           </p>
           <div className="hero-actions">
             <Link className="button-solid" href="#work">查看项目 ↓</Link>
@@ -39,20 +39,23 @@ export default function Home() {
         <div className="hero-orbit" aria-label="核心能力关系图">
           <div className="orbit-ring orbit-outer" />
           <div className="orbit-ring orbit-inner" />
-          <span className="orbit-label orbit-a">LANGGRAPH</span>
+          <span className="orbit-label orbit-a">LangGraph</span>
+          <span className="orbit-label orbit-e">Python</span>
           <span className="orbit-label orbit-b">RAG</span>
-          <span className="orbit-label orbit-c">TEXT–TO–SQL</span>
-          <span className="orbit-label orbit-d">DIFFUSION</span>
+          <span className="orbit-label orbit-f">LlamaIndex</span>
+          <span className="orbit-label orbit-c">Text-to-SQL</span>
+          <span className="orbit-label orbit-d">Diffusion</span>
+          <span className="orbit-label orbit-g">LLM Wiki</span>
           <div className="orbit-core">
-            <small>FOCUS</small>
+            <small>Focus</small>
             <b>AI</b>
-            <span>ENGINEERING</span>
+            <span>Engineering</span>
           </div>
         </div>
 
         <div className="proof-line">
-          <div><b>03</b><span>工程项目</span></div>
-          <div><b>02</b><span>第一作者论文</span></div>
+          <div><b>3</b><span>个工程项目</span></div>
+          <div><b>2</b><span>篇第一作者论文</span></div>
           <div><b>3.72</b><span>硕士 GPA · 前 10%</span></div>
         </div>
       </section>
