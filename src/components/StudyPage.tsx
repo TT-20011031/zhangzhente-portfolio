@@ -16,7 +16,11 @@ export function StudyPage({ study }: { study: Study }) {
         <div className="study-title-grid">
           <div>
             <p className="kicker">{study.eyebrow}</p>
-            <h1>{study.title}</h1>
+            <h1>
+              {study.titleLines?.map((line) => (
+                <span className="title-line" key={line}>{line}</span>
+              )) ?? study.title}
+            </h1>
           </div>
           <p className="study-thesis">{study.thesis}</p>
         </div>

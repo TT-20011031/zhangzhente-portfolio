@@ -489,6 +489,13 @@ img {
   letter-spacing: -.04em;
 }
 
+.title-line { display: block; }
+
+.project-card.tone-herbal .project-copy h3 {
+  font-size: clamp(3rem, 4vw, 3.75rem);
+  white-space: nowrap;
+}
+
 .project-copy .card-role {
   margin: 18px 0 32px;
   color: var(--card-accent);
@@ -711,6 +718,11 @@ img {
   letter-spacing: -.065em;
 }
 
+.study-page.tone-herbal .study-title-grid h1 {
+  font-size: clamp(3.75rem, 6vw, 6.7rem);
+  line-height: .98;
+}
+
 .study-thesis {
   margin: 0 0 8px;
   font-family: var(--font-display), serif;
@@ -781,9 +793,11 @@ img {
 }
 .section-copy h2 { max-width: 900px; margin: 0 0 34px; font-family: var(--font-display), serif; font-size: clamp(2.4rem, 4.5vw, 5rem); font-weight: 500; line-height: 1.25; letter-spacing: -.045em; }
 .study-page.tone-graphite .section-copy h2 { max-width: none; font-size: clamp(2.4rem, 3.9vw, 4.4rem); }
+.study-page.tone-herbal .section-copy h2 { max-width: none; font-size: clamp(2.3rem, 3.25vw, 3.7rem); }
 
 @media (min-width: 1200px) {
-  .study-page.tone-graphite .section-copy h2 { white-space: nowrap; }
+  .study-page.tone-graphite .section-copy h2,
+  .study-page.tone-herbal .section-copy h2 { white-space: nowrap; }
 }
 .section-copy > p { max-width: 800px; margin: 0 0 18px; color: #4e4a42; font-size: 1.05rem; line-height: 2; }
 .section-copy ul { max-width: 800px; margin: 30px 0 0; padding: 0; list-style: none; border-top: 1px solid var(--line); }
@@ -793,6 +807,11 @@ img {
 .section-media { margin-top: 60px; }
 .media-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 34px; align-items: start; }
 .media-grid .media-figure:first-child:nth-last-child(3) { grid-column: 1 / -1; }
+
+.study-page.tone-herbal .section-media.media-grid {
+  grid-template-columns: minmax(0, 1fr);
+  gap: clamp(56px, 7vw, 88px);
+}
 
 /* DeluData uses an editorial engineering-plate layout: one readable artifact per row. */
 .study-page.tone-graphite .section-media {
@@ -1000,6 +1019,7 @@ img {
   .project-card { min-height: 0; }
   .project-copy { padding: 34px 26px 40px; }
   .project-copy h3 { font-size: 2.75rem; }
+  .project-card.tone-herbal .project-copy h3 { font-size: clamp(2.35rem, 11vw, 2.75rem); }
   .project-image { min-height: 260px; padding: 22px; }
   .research-grid { grid-template-columns: 1fr; }
   .research-visual { min-height: 260px; }
@@ -1010,6 +1030,7 @@ img {
   .study-hero { padding-top: 30px; }
   .study-title-grid { padding-block: 52px 35px; }
   .study-title-grid h1 { font-size: clamp(3.25rem, 16vw, 5.2rem); overflow-wrap: anywhere; }
+  .study-page.tone-herbal .study-title-grid h1 { font-size: clamp(2.65rem, 12vw, 3.25rem); }
   .study-meta-line { flex-direction: column; gap: 8px; }
   .study-meta-line a { margin-left: 0; }
   .study-hero > .media-figure .media-trigger { min-height: 220px; }

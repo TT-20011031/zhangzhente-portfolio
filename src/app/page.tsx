@@ -71,7 +71,11 @@ export default function Home() {
             <article className={`project-card project-${index + 1} tone-${project.tone}`} key={project.slug}>
               <div className="project-copy">
                 <p className="card-index">{project.index} / {project.period}</p>
-                <h3>{project.title}</h3>
+                <h3>
+                  {project.titleLines?.map((line) => (
+                    <span className="title-line" key={line}>{line}</span>
+                  )) ?? project.title}
+                </h3>
                 <p className="card-role">{project.role}</p>
                 <p>{project.summary}</p>
                 <ul aria-label="技术标签">

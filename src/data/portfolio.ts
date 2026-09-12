@@ -21,6 +21,7 @@ export type Study = {
   kind: "project" | "research";
   index: string;
   title: string;
+  titleLines?: string[];
   eyebrow: string;
   role: string;
   period: string;
@@ -144,11 +145,12 @@ const media = {
     contain: true,
   },
   drugWorkspace: {
-    src: "/media/drug/workspace.webp",
-    alt: "多智能体中药研发助手需求输入工作区",
-    caption: "研发任务入口（会话历史已从公开素材中移除）",
-    width: 1210,
-    height: 415,
+    src: "/media/drug/conversation-full.png",
+    alt: "多智能体中药研发助手完整对话工作台",
+    caption: "研发对话工作台：研发记录、需求输入与任务范例",
+    width: 2560,
+    height: 1288,
+    contain: true,
   },
   drugOverview: {
     src: "/media/drug/system-overview.svg",
@@ -159,19 +161,28 @@ const media = {
     contain: true,
   },
   drugProgress: {
-    src: "/media/drug/workflow-progress.webp",
-    alt: "研发助手多轮任务和报告生成进度界面",
-    caption: "多轮任务恢复与可观察的步骤进度（详细提示已移除）",
-    width: 1050,
-    height: 800,
+    src: "/media/drug/multi-turn-full.png",
+    alt: "多智能体中药研发助手完整多轮对话页面",
+    caption: "多轮修改：基于既有研发状态继续生成报告",
+    width: 2560,
+    height: 1329,
+    contain: true,
   },
   drugStages: {
-    src: "/media/drug/report-stages.webp",
-    alt: "研发报告六个执行阶段界面",
-    caption: "需求解析、检索、分析、法规、配方与规格六阶段",
-    width: 395,
-    height: 793,
-    portrait: true,
+    src: "/media/drug/report-generation-full.png",
+    alt: "多智能体中药研发助手完整研发报告生成页面",
+    caption: "研发报告生成：六阶段执行进度与报告交付入口",
+    width: 2560,
+    height: 1329,
+    contain: true,
+  },
+  drugExamples: {
+    src: "/media/drug/examples-full.png",
+    alt: "多智能体中药研发助手完整研发范例页面",
+    caption: "研发范例：新品研发与古方优化任务入口",
+    width: 2560,
+    height: 1329,
+    contain: true,
   },
   policyWorkspace: {
     src: "/media/policy/workspace.webp",
@@ -328,6 +339,7 @@ export const projects: Study[] = [
     kind: "project",
     index: "02",
     title: "多智能体中药研发助手",
+    titleLines: ["多智能体", "中药研发助手"],
     eyebrow: "研发工作流 Agent",
     role: "项目成员 · 多智能体架构",
     period: "2026.05 — 2026.07",
@@ -350,7 +362,7 @@ export const projects: Study[] = [
         body: [
           "Router 先区分新品研发、古方优化、多轮修改、追问和闲聊。新品研发依次进入需求、古方、药材、法规、配方与工程规格；古方优化从配方解析和替换建议进入后续流程；修改请求则从已有状态继续。",
         ],
-        media: [media.drugOverview],
+        media: [media.drugOverview, media.drugExamples],
       },
       {
         marker: "02 / STATE",
