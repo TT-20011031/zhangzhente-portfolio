@@ -206,6 +206,14 @@ const media = {
     height: 1710,
     contain: true,
   },
+  dyngPaperInfo: {
+    src: "/media/dyng/paper-info.png",
+    alt: "DynG-Diff 论文标题、作者与摘要信息",
+    caption: "DynG-Diff 论文信息",
+    width: 1304,
+    height: 743,
+    contain: true,
+  },
   dyngAblation: {
     src: "/media/dyng/experiment-1.webp",
     alt: "DynG-Diff 动态引导、标量引导和无引导对比图",
@@ -236,6 +244,14 @@ const media = {
     caption: "CSP-Diff：耦合先验、S4 去噪骨干与梯度引导推理",
     width: 2400,
     height: 1393,
+    contain: true,
+  },
+  cspPaperInfo: {
+    src: "/media/csp/paper-info.png",
+    alt: "CSP-Diff 中文核心论文标题、作者与摘要信息",
+    caption: "CSP-Diff 论文信息",
+    width: 955,
+    height: 471,
     contain: true,
   },
   cspResults: {
@@ -442,6 +458,7 @@ export const research: Study[] = [
     tags: ["Diffusion", "Time Series", "Dynamic Guidance", "Probabilistic Forecasting"],
     tone: "research",
     hero: media.dyngArchitecture,
+    listingHero: media.dyngPaperInfo,
     facts: [
       { label: "训练", value: "两阶段分离" },
       { label: "骨干", value: "无条件扩散模型" },
@@ -491,6 +508,7 @@ export const research: Study[] = [
     tags: ["Diffusion", "S4", "IES", "Spearman", "Gradient Guidance"],
     tone: "research",
     hero: media.cspArchitecture,
+    listingHero: media.cspPaperInfo,
     facts: [
       { label: "电负荷 MAPE", value: "1.89%" },
       { label: "冷负荷 MAPE", value: "3.76%" },

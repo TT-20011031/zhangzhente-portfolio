@@ -109,10 +109,10 @@ export default function Home() {
               <article className="research-card" key={paper.slug}>
                 <Link className="research-visual" href={`/research/${paper.slug}`}>
                   <Image
-                    src={paper.hero.src}
-                    alt={paper.hero.alt}
-                    width={paper.hero.width}
-                    height={paper.hero.height}
+                    src={(paper.listingHero ?? paper.hero).src}
+                    alt={(paper.listingHero ?? paper.hero).alt}
+                    width={(paper.listingHero ?? paper.hero).width}
+                    height={(paper.listingHero ?? paper.hero).height}
                     sizes="(max-width: 800px) 90vw, 43vw"
                   />
                 </Link>
