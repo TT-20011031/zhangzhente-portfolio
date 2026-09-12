@@ -388,6 +388,7 @@ export const projects: Study[] = [
     kind: "project",
     index: "03",
     title: "政策公平竞争审查工具",
+    titleLines: ["政策公平竞争", "审查工具"],
     eyebrow: "法律政策 RAG 原型",
     role: "RAG 架构 · Prompt 工程",
     period: "2025.05 — 2025.08",
@@ -399,7 +400,7 @@ export const projects: Study[] = [
     tone: "civic",
     hero: media.policyWorkspace,
     facts: [
-      { label: "个人贡献", value: "切分 / 检索 / Prompt / 重试" },
+      { label: "个人贡献", value: "切分 / 检索 / Prompt" },
       { label: "输出", value: "风险 + 依据 + 建议" },
       { label: "状态", value: "专项模块已交付集成" },
     ],
