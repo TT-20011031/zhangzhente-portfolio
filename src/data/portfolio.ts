@@ -29,18 +29,28 @@ export type Study = {
   tags: string[];
   tone: "graphite" | "herbal" | "civic" | "research";
   hero: MediaAsset;
+  listingHero?: MediaAsset;
   facts: { label: string; value: string }[];
   sections: StudySection[];
   external?: { label: string; href: string }[];
 };
 
 const media = {
+  deluChatHome: {
+    src: "/media/deludata/chat-home-full.png",
+    alt: "DeluData 企业知识问答与智能问数工作台首页",
+    caption: "统一问答入口：知识库、智能问数与 Agent 能力",
+    width: 2560,
+    height: 1288,
+    contain: true,
+  },
   deluConsole: {
-    src: "/media/deludata/semantic-console.webp",
-    alt: "DeluData 语义治理控制台，经裁切移除账号与数据源信息",
-    caption: "语义治理控制台（公开裁切版）",
-    width: 1570,
-    height: 366,
+    src: "/media/deludata/semantic-console-full.png",
+    alt: "DeluData 智能问数语义治理控制台",
+    caption: "智能问数语义治理控制台",
+    width: 2234,
+    height: 860,
+    contain: true,
   },
   deluOverview: {
     src: "/media/deludata/system-overview.svg",
@@ -78,11 +88,60 @@ const media = {
     contain: true,
   },
   deluQuery: {
-    src: "/media/deludata/query-result-redacted.webp",
-    alt: "DeluData 自然语言问数结果页，业务数据已永久遮盖",
-    caption: "自然语言问数结果（业务字段与结果已永久遮盖）",
-    width: 1435,
-    height: 822,
+    src: "/media/deludata/query-result-full.png",
+    alt: "DeluData 自然语言智能问数结果页",
+    caption: "自然语言问数结果与分析过程",
+    width: 1499,
+    height: 1170,
+    contain: true,
+  },
+  deluQaWorkflow: {
+    src: "/media/deludata/qa-workflow-full.png",
+    alt: "DeluData 知识问答执行链路与证据检索过程",
+    caption: "知识问答链路：问题理解、知识检索与证据合成",
+    width: 1406,
+    height: 1203,
+    contain: true,
+  },
+  deluWikiGovernance: {
+    src: "/media/deludata/wiki-governance-full.png",
+    alt: "DeluData Wiki 与 RAG 知识治理页面",
+    caption: "Wiki 治理：实体页面、路由健康度与召回诊断",
+    width: 2235,
+    height: 1214,
+    contain: true,
+  },
+  deluKnowledgeGraph: {
+    src: "/media/deludata/knowledge-graph-full.png",
+    alt: "DeluData 企业知识图谱页面",
+    caption: "知识图谱：文档、实体与关系的可视化连接",
+    width: 2235,
+    height: 1284,
+    contain: true,
+  },
+  deluFieldSemantics: {
+    src: "/media/deludata/field-semantics-full.png",
+    alt: "DeluData 表字段语义治理页面",
+    caption: "表字段语义治理：业务名、同义词与字段说明",
+    width: 2550,
+    height: 1274,
+    contain: true,
+  },
+  deluQueryPermissions: {
+    src: "/media/deludata/query-permissions-full.png",
+    alt: "DeluData 智能问数数据权限配置页面",
+    caption: "问数权限配置：部门、岗位与账号的数据资产边界",
+    width: 2560,
+    height: 1288,
+    contain: true,
+  },
+  deluOrgAccounts: {
+    src: "/media/deludata/org-accounts-full.png",
+    alt: "DeluData 组织与账号管理页面",
+    caption: "组织与账号管理：部门、岗位与任职关系",
+    width: 2005,
+    height: 1085,
+    contain: true,
   },
   drugWorkspace: {
     src: "/media/drug/workspace.webp",
@@ -215,12 +274,13 @@ export const projects: Study[] = [
     summary:
       "把企业文档、业务语义与数据库权限组织进同一条可控的 Agent 执行链路。",
     thesis:
-      "这不是一个只会生成 SQL 的聊天框，而是一套让知识检索、语义治理、权限编译和只读执行彼此约束的企业系统。",
+      "从企业文档到业务数据，DeluData 让知识可检索、回答可溯源、指标可理解、问数可管控，并将这些能力组织进统一的 Agent 工作流。",
     tags: ["LangGraph", "RAG", "Text-to-SQL", "FastAPI", "React", "ChromaDB"],
     tone: "graphite",
     hero: media.deluConsole,
+    listingHero: media.deluChatHome,
     facts: [
-      { label: "职责", value: "需求分析 / 架构 / 前后端 / 部署" },
+      { label: "职责", value: "需求分析 / 架构 / 前后端" },
       { label: "核心编排", value: "Supervisor–Worker" },
       { label: "安全原则", value: "Fail closed / Read only" },
     ],
@@ -232,7 +292,7 @@ export const projects: Study[] = [
           "系统采用确定性工作流骨架承载意图识别、知识路由、计划、执行与结果合成，仅把需要语义判断的局部环节交给模型。这样既保留 Agent 的适应性，也让失败、重试和人工确认都有明确落点。",
           "前端通过 SSE 展示步骤状态和生成产物，后端以 FastAPI、LangGraph、MySQL、Redis 与 ChromaDB 分担业务事实、短期状态和语义索引。",
         ],
-        media: [media.deluOverview],
+        media: [media.deluOverview, media.deluQaWorkflow],
       },
       {
         marker: "02 / KNOWLEDGE",
@@ -241,7 +301,7 @@ export const projects: Study[] = [
           "RAG 在查询时保留原文细节，适合数字、公式、页码和参数；Wiki 在入库阶段把跨文档知识编译为可复用的实体页面与关系。在线路由先用确定性规则，再由低温结构化分类器决定 wiki、rag 或两者并用。",
           "检索链路使用语义分块、Dense 与 BM25 混合召回、重排和上下文扩展，最终回答仍回到原始证据。",
         ],
-        media: [media.deluWiki],
+        media: [media.deluWikiGovernance, media.deluWiki, media.deluKnowledgeGraph],
       },
       {
         marker: "03 / QUERY",
@@ -250,7 +310,7 @@ export const projects: Study[] = [
           "自然语言先被解析为查询意图，再经过业务术语、指标、公式、时间口径与表关系组成的语义层。授权 Schema 与访问策略参与编译，SQLGlot 负责生成和校验，最后才进入只读连接执行。",
           "链路重点不是让模型自由写 SQL，而是让每一次查询都能说明用了什么口径、经过哪些权限、为何可以执行。",
         ],
-        media: [media.deluSql, media.deluQuery],
+        media: [media.deluQuery, media.deluSql, media.deluFieldSemantics],
       },
       {
         marker: "04 / GOVERNANCE",
@@ -259,14 +319,7 @@ export const projects: Study[] = [
           "工作区形成租户硬边界，部门和用户权限形成软边界。对象权限覆盖表、字段、指标依赖、行过滤、时间范围和连接关系；若无法形成安全闭环，系统默认拒绝并给出可选路径。",
           "数据库白名单、SQL AST 单语句校验和原生只读账号构成三层防线，执行记录保留审计线索。",
         ],
-        media: [media.deluPermission],
-      },
-      {
-        marker: "05 / BOUNDARY",
-        title: "目前的能力边界",
-        body: [
-          "问数效果高度依赖语义治理质量，业务规则仍需要按数据源建立适配和回归测试；Wiki 编译也需要治理与人工复核。后续重点是扩大评测集、减少业务硬编码，并用可配置规则与向量检索增强语义匹配。",
-        ],
+        media: [media.deluQueryPermissions, media.deluPermission, media.deluOrgAccounts],
       },
     ],
   },

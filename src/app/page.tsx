@@ -81,10 +81,10 @@ export default function Home() {
               </div>
               <Link className="project-image" href={`/projects/${project.slug}`} aria-label={`查看 ${project.title} 案例`}>
                 <Image
-                  src={project.hero.src}
-                  alt={project.hero.alt}
-                  width={project.hero.width}
-                  height={project.hero.height}
+                  src={(project.listingHero ?? project.hero).src}
+                  alt={(project.listingHero ?? project.hero).alt}
+                  width={(project.listingHero ?? project.hero).width}
+                  height={(project.listingHero ?? project.hero).height}
                   sizes="(max-width: 900px) 92vw, 54vw"
                 />
               </Link>
