@@ -139,7 +139,7 @@ export default function Home() {
             <h3>经历 / 教育</h3>
             <article>
               <time>2026.04 — 2026.09</time>
-              <div><h4>AI Agent 开发工程实践</h4><p>需求分析、架构设计、前后端实现与部署</p></div>
+              <div><h4><strong>杭州得鹿山科技有限公司</strong> · Agent 开发</h4><p>需求分析、架构设计、前后端实现与部署</p></div>
             </article>
             <article>
               <time>2024.09 — 2027.07</time>
@@ -147,7 +147,7 @@ export default function Home() {
             </article>
             <article>
               <time>2020.09 — 2024.06</time>
-              <div><h4>浙江科技大学 · 电气工程及其自动化</h4><p>GPA 3.48 / 前 10%</p></div>
+              <div><h4>浙江科技大学 · 电子信息工程学士</h4><p>GPA 3.48 / 前 10% · 校二等奖学金、优秀学生干部</p></div>
             </article>
           </div>
 
