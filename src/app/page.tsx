@@ -139,7 +139,7 @@ export default function Home() {
             <h3>经历 / 教育</h3>
             <article>
               <time>2026.04 — 2026.09</time>
-              <div><h4><strong>杭州得鹿山科技有限公司</strong> · Agent 开发</h4><p>需求分析、架构设计、前后端实现与部署</p></div>
+              <div><h4>杭州得鹿山科技有限公司 · Agent 开发</h4><p>需求分析、架构设计、前后端实现与部署</p></div>
             </article>
             <article>
               <time>2024.09 — 2027.07</time>
@@ -166,7 +166,7 @@ export default function Home() {
       <section className="contact-section" id="contact">
         <div className="page-shell contact-inner">
           <p>04 / CONTACT</p>
-          <h2>寻找 AI Agent 开发机会，<br />也欢迎讨论系统设计。</h2>
+          <h2><span>寻找 AI Agent 开发机会，</span><span>也欢迎讨论系统设计。</span></h2>
           <a className="contact-mail" href="mailto:zhangzhente@163.com">zhangzhente@163.com ↗</a>
           <div className="contact-links">
             <a href="https://github.com/TT-20011031" target="_blank" rel="noreferrer">GitHub ↗</a>

@@ -667,7 +667,8 @@ img {
 }
 
 .contact-inner > p { margin: 0 0 60px; font-family: var(--font-mono), monospace; font-size: .74rem; }
-.contact-inner h2 { max-width: 1050px; margin: 0; font-family: var(--font-display), serif; font-size: clamp(2.7rem, 6vw, 7rem); font-weight: 600; line-height: 1.15; letter-spacing: -.055em; }
+.contact-inner h2 { margin: 0; font-family: var(--font-display), serif; font-size: clamp(2.7rem, 5.3vw, 6.25rem); font-weight: 600; line-height: 1.15; letter-spacing: -.055em; }
+.contact-inner h2 span { display: block; white-space: nowrap; }
 .contact-mail { display: inline-block; margin-top: 55px; padding-bottom: 7px; border-bottom: 2px solid var(--ink); font-size: clamp(1.05rem, 2vw, 1.8rem); font-weight: 600; }
 .contact-links { margin-top: 80px; padding-top: 20px; display: flex; gap: 34px; border-top: 1px solid rgba(23,22,18,.55); font-family: var(--font-mono), monospace; font-size: .72rem; }
 .contact-links a:last-child { margin-left: auto; }
@@ -1147,6 +1148,7 @@ img {
   .research-visual { min-height: 260px; }
   .timeline article { grid-template-columns: 1fr; gap: 8px; }
   .capabilities { padding: 28px 22px; }
+  .contact-inner h2 span { white-space: normal; }
   .contact-links { flex-wrap: wrap; }
   .contact-links a:last-child { width: 100%; margin-left: 0; }
   .study-hero { padding-top: 30px; }
