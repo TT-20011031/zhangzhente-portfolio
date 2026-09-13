@@ -4,9 +4,11 @@ import { MediaFigure } from "./MediaFigure";
 
 export function StudyPage({ study }: { study: Study }) {
   const backHref = study.kind === "project" ? "/#work" : "/#research";
+  const layout = study.layout ?? "standard";
+  const isResearchArticle = layout === "research-article";
 
   return (
-    <main className={`study-page tone-${study.tone}`}>
+    <main className={`study-page tone-${study.tone} layout-${layout}`}>
       <section className="study-hero page-shell">
         <div className="study-breadcrumb">
           <Link href={backHref}>← 返回{study.kind === "project" ? "项目" : "研究"}</Link>
@@ -35,16 +37,18 @@ export function StudyPage({ study }: { study: Study }) {
           ))}
         </div>
 
-        <MediaFigure media={study.hero} priority />
+        {!isResearchArticle && <MediaFigure media={study.hero} priority />}
 
-        <div className="facts-grid" aria-label="项目摘要">
-          {study.facts.map((fact) => (
-            <div key={fact.label}>
-              <span>{fact.label}</span>
-              <strong>{fact.value}</strong>
-            </div>
-          ))}
-        </div>
+        {!isResearchArticle && (
+          <div className="facts-grid" aria-label="项目摘要">
+            {study.facts.map((fact) => (
+              <div key={fact.label}>
+                <span>{fact.label}</span>
+                <strong>{fact.value}</strong>
+              </div>
+            ))}
+          </div>
+        )}
       </section>
 
       <div className="study-sections">

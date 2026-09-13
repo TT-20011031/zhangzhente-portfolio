@@ -19,6 +19,7 @@ export type StudySection = {
 export type Study = {
   slug: string;
   kind: "project" | "research";
+  layout?: "standard" | "research-article";
   index: string;
   title: string;
   titleLines?: string[];
@@ -199,11 +200,11 @@ const media = {
     height: 1142,
   },
   dyngArchitecture: {
-    src: "/media/dyng/architecture.webp",
-    alt: "DynG-Diff 两阶段动态引导扩散框架",
-    caption: "DynG-Diff：无条件骨干与状态感知动态引导",
-    width: 2400,
-    height: 1710,
+    src: "/media/dyng/core-architecture.png",
+    alt: "DynG-Diff 无条件骨干预训练、状态感知策略学习与动态引导推理三阶段架构",
+    caption: "整体架构：无条件骨干预训练、状态感知策略学习与动态引导推理",
+    width: 6311,
+    height: 4496,
     contain: true,
   },
   dyngPaperInfo: {
@@ -214,28 +215,45 @@ const media = {
     height: 743,
     contain: true,
   },
-  dyngAblation: {
-    src: "/media/dyng/experiment-1.webp",
-    alt: "DynG-Diff 动态引导、标量引导和无引导对比图",
-    caption: "动态矩阵引导、标量引导与无引导的消融对比",
-    width: 2400,
-    height: 495,
+  dyngResults: {
+    src: "/media/dyng/main-results.png",
+    alt: "DynG-Diff 在六个真实数据集上的 MSE 与 CRPS 对比结果表",
+    caption: "主结果：六个真实数据集、四种预测长度下的 MSE 与 CRPS 对比",
+    width: 859,
+    height: 729,
+    portrait: true,
     contain: true,
   },
-  dyngCompare: {
-    src: "/media/dyng/experiment-2.webp",
-    alt: "DynG-Diff 与多种概率时序预测方法的实验对比",
-    caption: "跨数据集与预测窗口的概率预测表现",
-    width: 2400,
-    height: 1261,
+  dyngBenchmark: {
+    src: "/media/dyng/benchmark-results.png",
+    alt: "DynG-Diff 在 ETTh1 与 Appliance 数据集上的 MSE 和 CRPS 柱状对比",
+    caption: "Figures 3–4：ETTh1 与 Appliance 上不同预测长度的 MSE、CRPS 结果",
+    width: 1060,
+    height: 676,
+    contain: true,
+  },
+  dyngIntervals: {
+    src: "/media/dyng/forecast-intervals.png",
+    alt: "动态引导、标量引导和无引导模式下的概率预测区间对比",
+    caption: "Figure 5：动态、标量与无引导模式下的概率预测区间",
+    width: 1065,
+    height: 304,
     contain: true,
   },
   dyngWeights: {
-    src: "/media/dyng/experiment-3.webp",
-    alt: "DynG-Diff 观测精度和动态引导权重热力图",
-    caption: "观测精度与策略网络动态权重的对应关系",
-    width: 2400,
-    height: 1215,
+    src: "/media/dyng/dynamic-weights.png",
+    alt: "Weather 数据集观测精度与动态引导权重在不同扩散时刻的热力图对比",
+    caption: "Figure 6：观测精度与策略网络动态权重的时空对应关系",
+    width: 1050,
+    height: 556,
+    contain: true,
+  },
+  dyngRobustness: {
+    src: "/media/dyng/robustness-efficiency.png",
+    alt: "DynG-Diff 极端噪声鲁棒性与训练推理开销实验图",
+    caption: "Figures 7–8：极端噪声下的性能退化与动态策略网络的计算开销",
+    width: 1060,
+    height: 903,
     contain: true,
   },
   cspArchitecture: {
@@ -446,6 +464,7 @@ export const research: Study[] = [
   {
     slug: "dyng-diff",
     kind: "research",
+    layout: "research-article",
     index: "R1",
     title: "DynG-Diff",
     eyebrow: "概率多元时序预测",
@@ -454,7 +473,7 @@ export const research: Study[] = [
     summary:
       "用状态感知策略网络在扩散推理过程中动态判断不同变量的观测可靠性。",
     thesis:
-      "同一时刻、不同变量的观测质量并不相同；引导强度也不应该只是一个固定标量。",
+      "以状态感知策略网络动态估计变量可靠性，重构多元时序预测的扩散引导机制。",
     tags: ["Diffusion", "Time Series", "Dynamic Guidance", "Probabilistic Forecasting"],
     tone: "research",
     hero: media.dyngArchitecture,
@@ -469,27 +488,34 @@ export const research: Study[] = [
     ],
     sections: [
       {
-        marker: "01 / QUESTION",
-        title: "观测可靠性随状态变化",
+        marker: "01 / ABSTRACT",
+        title: "论文摘要",
         body: [
-          "现有条件扩散方法通常采用任务特定条件或统一引导强度，难以描述变量间显著不同的噪声水平与演化模式。DynG-Diff 将联合分布学习与预测引导拆开：先训练无条件扩散骨干，再训练轻量策略网络。",
+          "多元时间序列（MTS）的概率预测对于复杂动态系统建模至关重要。然而，现有基于扩散的方法依赖任务特定的条件范式，灵活性不足，也难以处理内在的“信息异质性”——不同变量之间显著不同的噪声水平与演化模式。为此，我们提出 DynG-Diff，一种面向多元时间序列概率预测的变量敏感动态引导扩散框架。DynG-Diff 采用两阶段分离训练策略，使用无条件扩散骨干建模多元时间序列的联合分布先验；引入轻量级状态感知策略网络，从实时含噪状态与一步去噪估计中自适应推断变量可靠性，并输出动态引导强度矩阵；同时从数学上将动态权重表述为观测分布的局部精度，使模型能够在推理阶段对高置信变量进行精确引导，并过滤异常噪声的干扰。多个真实世界基准实验表明，DynG-Diff 相较先进的条件扩散模型取得了具有竞争力的概率预测表现，并提升了严重观测破坏场景下的鲁棒性。",
         ],
       },
       {
-        marker: "02 / METHOD",
-        title: "从一次去噪估计中推断动态权重",
+        marker: "02 / ARCHITECTURE",
+        title: "解耦训练与变量级动态引导",
         body: [
-          "策略网络联合当前噪声状态与一步去噪估计，输出变量敏感的动态引导矩阵。论文将该权重解释为观测分布的局部精度，使高置信变量获得更强引导，同时削弱异常观测带来的干扰。",
+          "DynG-Diff 由三个阶段组成：首先使用标准扩散损失预训练无条件去噪骨干，以学习多元时间序列的联合概率分布；随后冻结骨干，把当前含噪状态与一步去噪估计拼接后输入状态感知策略网络，并以重构逆误差作为代理目标，学习针对每个变量和扩散时刻的动态引导强度矩阵；推理阶段，策略网络在每一步重新计算权重，以变量级方式调制观测引导梯度，使高置信观测获得更精确的引导，同时抑制异常噪声的干扰。",
         ],
-        media: [media.dyngAblation, media.dyngWeights],
+        media: [media.dyngArchitecture],
       },
       {
         marker: "03 / EVIDENCE",
-        title: "竞争力与鲁棒性，而不是笼统的 SOTA",
+        title: "在真实基准上验证精度、机制与鲁棒性",
         body: [
-          "实验覆盖 ETTh1、Exchange、Weather、Appliance、Solar 与 Traffic 等真实数据集，并在多个预测窗口比较 MSE 与 CRPS。结果显示方法具备有竞争力的概率预测表现，在严重观测噪声下体现出更稳定的鲁棒性。",
+          "实验覆盖 ETTh1、Exchange、Weather、Appliance、Solar 与 Traffic 六个真实数据集，设置 96、168、336、720 四种预测长度，以 MSE 与 CRPS 比较 DynG-Diff 和 D3U、TMDM、TimeDiff、SSSD、CSDI、TimeGrad。DynG-Diff 在多数设置取得有竞争力的结果，ETTh1、Appliance 和 Weather 的平均 CRPS 分别为 0.321、0.395 和 0.190；Solar 在各预测长度上保持竞争力，而 Traffic 的超长预测仍存在概率校准空间。",
+          "消融结果显示，相比动态引导，无引导的平均 MSE 与 CRPS 分别恶化 125.6% 和 81.7%，统一标量引导分别恶化 26.1% 和 14.8%。预测区间和热力图进一步表明，策略网络生成的变量级权重能够跟随观测精度变化，并在极端噪声下比标量引导更稳健；相应代价是在 Traffic 上带来约 30.4% 的推理时间开销，当前实现更适合离线或批量预测。",
         ],
-        media: [media.dyngCompare],
+        media: [
+          media.dyngResults,
+          media.dyngBenchmark,
+          media.dyngIntervals,
+          media.dyngWeights,
+          media.dyngRobustness,
+        ],
       },
     ],
   },
